@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yue.infrastructure.dao.IVoucherDao">
+
+    <resultMap id="CaseMap" type="com.yue.infrastructure.dao.po.Voucher">
+        <id column="id" property="id"/>
+        <result column="shop_id" property="shopId"/>
+        <result column="title" property="title"/>
+        <result column="sub_title" property="subTitle"/>
+        <result column="rules" property="rules"/>
+        <result column="pay_value" property="payValue"/>
+        <result column="actual_value" property="actualValue"/>
+        <result column="type" property="type"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <insert id="addVoucher" parameterType="com.yue.infrastructure.dao.po.Voucher"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into tb_voucher (shop_id, title, sub_title, rules, pay_value, actual_value, type, status)
+        values (#{shopId}, #{title}, #{subTitle}, #{rules}, #{payValue}, #{actualValue}, #{type}, #{status})
+    </insert>
+
+
+</mapper>
